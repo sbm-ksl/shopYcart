@@ -1,0 +1,21 @@
+<div class="row">
+	<div class="col-sm-2">
+		<img src="{{model.imageUrl}}" class="img-thumbnail">
+	</div>
+	<div class="col-sm-10">
+		<ul class="list-group">
+			<li class="list-group-item"><h2>{{model.title}}</h2></li>
+			<li class="list-group-item"><p>{{model.description}}</p></li>
+			<li class="list-group-item"><p><strong>Price: $ {{model.price}}</strong></p></li>
+			<li class="list-group-item">
+				<div>
+		          <button class="btn btn-success btn-sm" {{action "addToCart" model}}>Add to cart</button>
+		          {{#link-to "cart"}}<button class="btn btn-warning btn-sm">Go to Cart</button>{{/link-to}}
+		        </div>
+		    </li>    
+        </ul>
+	</div>
+</div>
+{{outlet}}
+
+{{yield}}

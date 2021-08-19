@@ -1,0 +1,16 @@
+<h1>Login</h1>
+
+	<label for="username">User Name</label>
+	{{input id='username' placeholder='Enter User Name' value=username}}
+	
+	<label for="password">Password</label>
+	{{input id='password' placeholder='Enter Password' type='password' value=password}}
+	
+	<button type="button" {{action 'authenticate'}}>Login</button>
+	<br><br>
+	{{#if errorMessage}}
+	  <p>
+	  	<strong>Login failed:</strong>
+	  	<code><span class="	glyphicon glyphicon-remove"></span>{{errorMessage}}</code>
+	  </p>
+	{{/if}}

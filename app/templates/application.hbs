@@ -1,0 +1,78 @@
+ {{#if currentlyLoading}}
+    {{loading-indicator}}
+ {{else}}   
+  <body>
+    <div class="container-fluid container1">
+      {{#if session.isAuthenticated}}
+      <div class="container-fluid">
+        <header>
+          <nav class="navbar navbar-default">
+             <ul class="nav navbar-nav">
+               <li>{{#link-to 'index'}}Home{{/link-to}}</li>
+               <li>{{#link-to 'index'}}Specials{{/link-to}}</li>
+               <li>{{#link-to 'index'}}All Products{{/link-to}}</li>
+               <li>{{#link-to 'contact'}}Contact{{/link-to}}</li>
+               <li>{{#link-to 'about'}}About{{/link-to}}</li>
+             </ul>
+             <ul class="nav navbar-nav navbar-right">
+               <li><a href="#" class="btn btn-warning" {{action 'logout'}}>Logout</a></li>
+             </ul>
+          </nav>
+          <div class="row">
+              <div class="col-sm-9 logo">
+                  {{#link-to "index"}}<h2>shopYcart</h2>{{/link-to}}  
+              </div>
+              <div class="col-sm-3">
+                 {{input class="form-control" id="focusedInput" type="text"}}
+                 <button class="btn btn-default btn-sm">Search</button>
+                   <ul class="nav navbar-nav">
+                      <li>{{#link-to 'index'}}<img src="assets/images/facebook.png">{{/link-to}}</li>
+                      <li>{{#link-to 'index'}}<img src="assets/images/google-plus.png">{{/link-to}}</li>
+                      <li>{{#link-to 'index'}}<img src="assets/images/twitter.png">{{/link-to}}</li>
+                      <li>{{#link-to 'index'}}<img src="assets/images/youtube.png">{{/link-to}}</li>
+                   </ul>
+              </div>
+          </div>
+          <nav class="navbar navbar-default">
+            <ul class="nav navbar-nav">
+              <li>{{#link-to 'category' 1}}Category #1{{/link-to}}</li>
+              <li>{{#link-to 'category' 2}}Category #2{{/link-to}}</li>
+              <li>{{#link-to 'category' 3}}Category #3{{/link-to}}</li>
+              <li>{{#link-to 'category' 4}}Category #4{{/link-to}}</li>
+              <li>{{#link-to 'category' 5}}Category #5{{/link-to}}</li>
+              <li>{{#link-to 'category' 6}}Category #6{{/link-to}}</li>
+              <li>{{#link-to 'cart'}}<span class="glyphicon glyphicon-shopping-cart"></span> CART{{/link-to}}</li>
+            </ul>
+          </nav>
+        </header>
+      </div>
+      {{else}}
+        <nav class="navbar navbar-default">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <span class="navbar-brand">{{#link-to 'index'}}ShopYcart{{/link-to}}</span>
+              <span class="navbar-brand">{{#link-to 'login'}}Login{{/link-to}}</span>
+            </div>
+          </div>
+        </nav>
+      {{/if}}       
+
+      <div class="container-fluid">
+        {{outlet}}
+      </div>
+
+      <div class="container-fluid">
+         <footer>
+            <div id="privacy">
+                Copyright © 2017 shopYcart<br> Privacy Policy<br>Restricted Copy 
+            </div>
+         </footer>
+      </div>
+
+    </div>     
+  </body>
+
+
+{{/if}}
+ 
+

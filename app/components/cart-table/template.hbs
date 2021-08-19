@@ -1,0 +1,58 @@
+{{#link-to 'index'}}
+  <button class="btn btn-success btn-sm">Continue Shopping</button>
+{{/link-to}}
+<button class="btn btn-warning btn-sm {{if isCartEmpty 'disabled' ''}}">Checkout</button>
+{{#if isCartEmpty}}
+  <div class="jumbotron">
+    <p>Your Cart is Empty. Please add products in your Cart.</p>
+  </div>
+{{else}}
+  <table class="table tbl">
+    <thead>
+      <tr class="warning">
+        <th>&nbsp;</th>
+        <th>Product</th>
+        <th>Product Name</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Total</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each model.itemDetail as |cartUnit|}}
+        <tr>
+          <td>
+            <label>
+              <button class="btn btn-danger btn-sm" {{action 'removeProduct' cartUnit}}>Remove</button>
+            </label>
+          </td>
+          <td>
+            <div>
+              <img src="{{cartUnit.imageUrl}}" class="img-thumbnail" width="20%" height="20%">
+            </div>
+          </td>
+          <td><h3>{{cartUnit.title}}</h3></td>
+          <td>${{cartUnit.price}}</td>
+          <td>1</td>
+          <td>${{cartUnit.price}}</td>
+        </tr>
+      {{/each}}
+      <tr class="info">
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>
+          <strong>Total</strong>
+        </td>
+        <td>
+          ${{totalPrice}}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+{{/if}}
+{{#link-to 'index'}}
+  <button class="btn btn-success btn-sm">Continue Shopping</button>
+{{/link-to}}
+<button class="btn btn-warning btn-sm {{if isCartEmpty 'disabled' ''}}">Checkout</button>
